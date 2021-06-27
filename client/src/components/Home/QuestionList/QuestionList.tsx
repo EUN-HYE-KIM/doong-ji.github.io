@@ -1,4 +1,4 @@
-import { Button, Card, List } from 'antd';
+import { Button, List } from 'antd';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 

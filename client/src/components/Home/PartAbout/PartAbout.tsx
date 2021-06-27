@@ -32,11 +32,9 @@ const data = [
 ];
 const PartAbout: FC = () => {
   const [openKeys, setOpenKeys] = useState(['sub1']);
-
-  console.log(openKeys);
-  const onOpenChange = (keys: any[]) => {
-    const latestOpenKey = keys.find((key: string) => openKeys.indexOf(key) === -1);
-    if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
+  const onOpenChange = (keys: string[]) => {
+    const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
+    if (rootSubmenuKeys.indexOf('' + latestOpenKey) === -1) {
       setOpenKeys(keys);
     } else {
       setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
