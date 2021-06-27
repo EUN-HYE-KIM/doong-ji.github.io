@@ -32,7 +32,7 @@ const data = [
 ];
 const PartAbout: FC = () => {
   const [openKeys, setOpenKeys] = useState(['sub1']);
-  const onOpenChange = (keys: string[]) => {
+  const onOpenChange = (keys: any[]) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
     if (rootSubmenuKeys.indexOf('' + latestOpenKey) === -1) {
       setOpenKeys(keys);
