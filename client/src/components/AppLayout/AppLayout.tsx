@@ -6,20 +6,6 @@ import { FC, useCallback, useEffect, useState } from 'react';
 import { Link, Link as LinkR } from 'react-router-dom';
 import { animateScroll as scroll } from 'react-scroll';
 const AppLayout: FC = ({ children }) => {
-  // TopNav scroll시 고정
-  // const [scrollNav, setScrollNav] = useState(false);
-
-  // const changeNav = () => {
-  //   if (window.scrollY >= 160) {
-  //     setScrollNav(true);
-  //   } else {
-  //     setScrollNav(false);
-  //   }
-  // };
-  // useEffect(() => {
-  //   window.addEventListener('scroll', changeNav);
-  // }, []);
-
   const toggleHome = useCallback(() => {
     scroll.scrollToTop();
   }, []);
