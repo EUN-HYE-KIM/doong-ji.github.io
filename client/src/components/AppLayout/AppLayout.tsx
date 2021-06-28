@@ -1,61 +1,56 @@
-import styled from '@emotion/styled';
-import { Button, Menu } from 'antd';
 import Layout, { Footer, Header } from 'antd/lib/layout/layout';
-import SubMenu from 'antd/lib/menu/SubMenu';
-import { FC, useCallback, useEffect, useState } from 'react';
-import { Link, Link as LinkR } from 'react-router-dom';
+import { FC, useCallback } from 'react';
+import { Link } from 'react-router-dom';
+import { HeaderBox, Logo } from './styled';
 import { animateScroll as scroll } from 'react-scroll';
 const AppLayout: FC = ({ children }) => {
   const toggleHome = useCallback(() => {
     scroll.scrollToTop();
   }, []);
   return (
-    <>
+    <HeaderBox>
       <Layout>
         <Header
           style={{
-            position: 'relative',
             zIndex: 1,
             width: '100%',
             transition: '0.8s all ease',
             marginBottom: '64px',
+            display: 'flex',
           }}
         >
           <Logo to="/" className="logo" onClick={toggleHome} />
-          <Menu theme="dark" mode="horizontal">
-            <Menu.Item key="1">
-              <Link to="about">둥지소개</Link>
-            </Menu.Item>
-            <Menu.Item key="2">
-              <Link to="notice">공지사항</Link>
-            </Menu.Item>
-            <Menu.SubMenu key="3" title={<Link to="community">커뮤니티</Link>}>
-              <Menu.ItemGroup title="게시판">
-                <Menu.Item key="setting:1">자유게시판</Menu.Item>
-                <Menu.Item key="setting:2">질문게시판</Menu.Item>
-                <Menu.Item key="setting:3">링크공유게시판</Menu.Item>
-                <Menu.Item key="setting:4">프로젝트게시판</Menu.Item>
-              </Menu.ItemGroup>
-            </Menu.SubMenu>
+          <div className="nav">
+            <ul>
+              <li>
+                <Link to="about">소개</Link>
+              </li>
 
-            <Menu.SubMenu key="4" title={<Link to="project">프로젝트</Link>}>
-              <Menu.ItemGroup title="프로젝트">
-                <Menu.Item key="setting:1">진행중</Menu.Item>
-                <Menu.Item key="setting:2">진행예정</Menu.Item>
-                <Menu.Item key="setting:3">완료</Menu.Item>
-              </Menu.ItemGroup>
-            </Menu.SubMenu>
-            <Menu.Item key="5">
-              <Link to="calendar">캘린더</Link>
-            </Menu.Item>
-            <Menu.Item key="6">
-              <Link to="question"> Q & A</Link>
-            </Menu.Item>
+              <li>
+                <Link to="project">프로젝트</Link>
+              </li>
 
-            <Button type="primary" shape="round" style={{ left: '50px' }}>
-              <Link to="signup">Sign in</Link>
-            </Button>
-          </Menu>
+              <li>
+                <Link to="calendar">캘린더</Link>
+              </li>
+
+              <li>
+                <Link to="community">커뮤니티</Link>
+              </li>
+
+              <li>
+                <Link to="question">Q&A</Link>
+              </li>
+            </ul>
+          </div>
+          <div className="login">
+            <div className="signin">
+              <Link to="signin">로그인</Link>
+            </div>
+            <div className="signup">
+              <Link to="signup">회원가입</Link>
+            </div>
+          </div>
         </Header>
         {children}
         <Footer
@@ -66,19 +61,8 @@ const AppLayout: FC = ({ children }) => {
           Footer
         </Footer>
       </Layout>
-
-      {/* 
-        반복되는 상단 Header layout 적용
-        로고  --  둥지소개, 공지사항, 커뮤니티, 프로젝트, 캘린터, Q & A, 상단 로그인/회원가입
-      */}
-    </>
+    </HeaderBox>
   );
 };
-const Logo = styled(LinkR)`
-  float: left;
-  width: 120px;
-  height: 31px;
-  margin: 16px 24px 16px 0;
-  background: rgba(255, 255, 255, 0.2);
-`;
+
 export default AppLayout;
