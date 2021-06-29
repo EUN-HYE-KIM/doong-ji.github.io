@@ -1,9 +1,17 @@
 import Layout, { Footer, Header } from 'antd/lib/layout/layout';
-import { FC, useCallback } from 'react';
+import { FC, useCallback, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { HeaderBox, Logo } from './styled';
 import { animateScroll as scroll } from 'react-scroll';
+
+interface Props {
+  path: string; // id의 타입에 따라
+}
+
 const AppLayout: FC = ({ children }) => {
+  const location = useLocation().pathname.split('/')[1];
+  const [isLogin, setIsLogin] = useState(true);
   const toggleHome = useCallback(() => {
     scroll.scrollToTop();
   }, []);
@@ -23,34 +31,63 @@ const AppLayout: FC = ({ children }) => {
           <div className="nav">
             <ul>
               <li>
-                <Link to="about">소개</Link>
+                <Link to="/about" className={location === 'about' ? 'active' : ''}>
+                  소개
+                </Link>
               </li>
 
               <li>
-                <Link to="project">프로젝트</Link>
+                <Link to="/project" className={location === 'project' ? 'active' : ''}>
+                  프로젝트
+                </Link>
               </li>
 
               <li>
-                <Link to="calendar">캘린더</Link>
+                <Link to="/calendar" className={location === 'calendar' ? 'active' : ''}>
+                  캘린더
+                </Link>
               </li>
 
               <li>
-                <Link to="community">커뮤니티</Link>
+                <Link to="/community" className={location === 'community' ? 'active' : ''}>
+                  커뮤니티
+                </Link>
               </li>
 
               <li>
-                <Link to="question">Q&A</Link>
+                <Link to="/question" className={location === 'question' ? 'active' : ''}>
+                  Q&A
+                </Link>
               </li>
             </ul>
           </div>
-          <div className="login">
-            <div className="signin">
-              <Link to="signin">로그인</Link>
+          {isLogin ? (
+            <div className="login">
+              <div className="signin">
+                <Link to="/signin" className={location === 'signin' ? 'active' : ''}>
+                  로그인
+                </Link>
+              </div>
+              <div className="signup">
+                <Link to="/signup" className={location === 'signup' ? 'active' : ''}>
+                  회원가입
+                </Link>
+              </div>
             </div>
-            <div className="signup">
-              <Link to="signup">회원가입</Link>
+          ) : (
+            <div className="logined">
+              <div className="signin">
+                <Link to="/signin" className={location === 'signin' ? 'active' : ''}>
+                  알림
+                </Link>
+              </div>
+              <div className="signup">
+                <Link to="/logout" className={location === 'signup' ? 'active' : ''}>
+                  로구아웃
+                </Link>
+              </div>
             </div>
-          </div>
+          )}
         </Header>
         {children}
         <Footer

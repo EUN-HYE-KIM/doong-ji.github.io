@@ -1,5 +1,5 @@
 import 'antd/dist/antd.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { Global, ThemeProvider } from '@emotion/react';
 import GlobalStyle from '@/theme/globalStyle';
 import AppLayout from '@/components/AppLayout';
@@ -32,6 +32,7 @@ function App(): JSX.Element {
             <Route path="/signin" exact component={Signin} />
             <Route path="/signup" exact component={Signup} />
             <Route path="/testpage" exact component={TestPage} />
+            <Redirect path="*" to="/" />
           </AppLayout>
         </Switch>
       </ThemeProvider>

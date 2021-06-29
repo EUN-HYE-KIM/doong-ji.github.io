@@ -14,6 +14,9 @@ export const HeaderBox = styled.div`
       display: flex;
       > li {
         padding: 5px 40px;
+        .active {
+          color: #e8c;
+        }
         > a {
           color: #fff;
         }
@@ -24,6 +27,9 @@ export const HeaderBox = styled.div`
     display: flex;
     > div {
       padding: 5px;
+      .active {
+        color: #e8c;
+      }
       > a {
         color: #fff;
       }
