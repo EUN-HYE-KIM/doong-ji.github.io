@@ -4,14 +4,40 @@ import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { HeaderBox, Logo } from './styled';
 import { animateScroll as scroll } from 'react-scroll';
+import { Dropdown, Icon } from 'semantic-ui-react';
 
-interface Props {
-  path: string; // id의 타입에 따라
-}
+const trigger = (
+  <span>
+    <Icon name="user" /> Hello, Bob
+  </span>
+);
+const alam = (
+  <span>
+    <Icon name="user" />
+  </span>
+);
+const options = [
+  {
+    key: 'user',
+    text: (
+      <span>
+        Signed in as <strong>Bob Smith</strong>
+      </span>
+    ),
+    disabled: true,
+  },
+  { key: 'profile', text: 'Your Profile' },
+  { key: 'stars', text: 'Your Stars' },
+  { key: 'explore', text: 'Explore' },
+  { key: 'integrations', text: 'Integrations' },
+  { key: 'help', text: 'Help' },
+  { key: 'settings', text: 'Settings' },
+  { key: 'sign-out', text: 'Sign Out' },
+];
 
 const AppLayout: FC = ({ children }) => {
   const location = useLocation().pathname.split('/')[1];
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
   const toggleHome = useCallback(() => {
     scroll.scrollToTop();
   }, []);
@@ -75,16 +101,12 @@ const AppLayout: FC = ({ children }) => {
               </div>
             </div>
           ) : (
-            <div className="logined">
-              <div className="signin">
-                <Link to="/signin" className={location === 'signin' ? 'active' : ''}>
-                  알림
-                </Link>
+            <div className="login">
+              <div className="signup">
+                <Dropdown trigger={trigger} options={options} />
               </div>
               <div className="signup">
-                <Link to="/logout" className={location === 'signup' ? 'active' : ''}>
-                  로구아웃
-                </Link>
+                <Dropdown trigger={alam} options={options} />
               </div>
             </div>
           )}

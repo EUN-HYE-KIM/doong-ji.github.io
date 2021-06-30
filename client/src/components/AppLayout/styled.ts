@@ -25,6 +25,8 @@ export const HeaderBox = styled.div`
   }
   .login {
     display: flex;
+    color: #fff;
+    margin-right: 150px;
     > div {
       padding: 5px;
       .active {

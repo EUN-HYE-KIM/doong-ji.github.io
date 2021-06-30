@@ -1,4 +1,5 @@
 import 'antd/dist/antd.css';
+import 'semantic-ui-css/semantic.min.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { Global, ThemeProvider } from '@emotion/react';
 import GlobalStyle from '@/theme/globalStyle';
