@@ -23,22 +23,31 @@ const data = [
 ];
 const QuestionList: FC = () => {
   return (
-    <Content className="site-layout" style={{ padding: '0 50px' }}>
-      <SiteLayoutBackground style={{ padding: 24, minHeight: 380 }}>
-        <List
-          itemLayout="horizontal"
-          dataSource={data}
-          renderItem={(item) => (
-            <List.Item>
-              <List.Item.Meta title={<a href="https://ant.design">{item.title}</a>} description={item.contents} />
-            </List.Item>
-          )}
-        />
-        <Button type="primary" shape="round">
-          <Link to="question">Q & A 바로가기</Link>
-        </Button>
-      </SiteLayoutBackground>
-    </Content>
+    <section>
+      <Content className="site-layout">
+        <SiteLayoutBackground>
+          <h2 className="sub_title">
+            <span>궁금한게 있으시다면</span>
+            <br></br>
+            <span>무엇이든지 물어보세요!</span>
+          </h2>
+          <List
+            itemLayout="horizontal"
+            dataSource={data}
+            renderItem={(item) => (
+              <List.Item>
+                <div>d</div>
+                <List.Item.Meta title={<a href="https://ant.design">{item.title}</a>} description={item.contents} />
+                <div>d</div>
+              </List.Item>
+            )}
+          />
+          <Link className="to_question_link" to="question">
+            <span>VIEW MORE</span>
+          </Link>
+        </SiteLayoutBackground>
+      </Content>
+    </section>
   );
 };
 

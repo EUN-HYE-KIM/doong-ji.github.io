@@ -1,9 +1,9 @@
 import { FC, useState } from 'react';
-import { Menu } from 'antd';
+import { Tabs, Space } from 'antd';
 
 import { Content } from 'antd/lib/layout/layout';
 import { SiteLayoutBackground } from './styeld';
-const { SubMenu } = Menu;
+const { TabPane } = Tabs;
 
 // submenu keys of first level
 const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
@@ -41,20 +41,35 @@ const PartAbout: FC = () => {
     }
   };
   return (
-    <Content className="site-layout" style={{ padding: '0 50px' }}>
-      <SiteLayoutBackground style={{ padding: 24, minHeight: 380 }}>
-        <Menu mode="inline" openKeys={openKeys} onOpenChange={onOpenChange} style={{ width: 256 }}>
-          {data &&
-            data.map((item, index) => {
-              return (
-                <SubMenu key={`sub${index + 1}`} title={item.part}>
-                  <Menu.Item key="1">{item.contents}</Menu.Item>
-                </SubMenu>
-              );
-            })}
-        </Menu>
-      </SiteLayoutBackground>
-    </Content>
+    <section>
+      <Content className="site-layout">
+        <SiteLayoutBackground>
+          <h1 className="main_title">
+            <span>둥지는</span>
+            <span>어떤 팀으로</span>
+            <span>구성되어 있나요?</span>
+          </h1>
+          <div className="part_img">
+            <img src="http://lorempixel.com/1500/900/cats/1/"></img>
+          </div>
+          <Tabs className="part_tabs_wrap" tabPosition={'bottom'}>
+            {data &&
+              data.map((item, index) => {
+                return (
+                  <TabPane tab={<p className="sub_title">{item.part}</p>} key={`sub${index + 1}`}>
+                    <div className="tabs_content_wrap">
+                      <h2>
+                        <span>{item.part}</span>
+                      </h2>
+                      <p className="sub_title">{item.contents}</p>
+                    </div>
+                  </TabPane>
+                );
+              })}
+          </Tabs>
+        </SiteLayoutBackground>
+      </Content>
+    </section>
   );
 };
 
