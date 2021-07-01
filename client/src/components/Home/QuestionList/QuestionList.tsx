@@ -23,7 +23,7 @@ const data = [
 ];
 const QuestionList: FC = () => {
   return (
-    <section>
+    <section className="section">
       <Content className="site-layout">
         <SiteLayoutBackground>
           <h2 className="sub_title">

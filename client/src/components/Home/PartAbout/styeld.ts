@@ -83,7 +83,6 @@ export const SiteLayoutBackground = styled.div`
     }
     .part_tabs_wrap {
       margin-top: 8vw;
-      flex-direction: column-reverse;
       /*Tab*/
       .ant-tabs-nav {
         margin-top: 4vw;

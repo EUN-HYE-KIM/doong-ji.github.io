@@ -41,7 +41,7 @@ const PartAbout: FC = () => {
     }
   };
   return (
-    <section>
+    <section className="section">
       <Content className="site-layout">
         <SiteLayoutBackground>
           <h1 className="main_title">

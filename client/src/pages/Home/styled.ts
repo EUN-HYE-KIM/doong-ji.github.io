@@ -14,10 +14,16 @@ export const HomeWrap = styled.div`
       display: block;
     }
   }
+  .section {
+    padding-top: 28vw;
+  }
   .sub_title {
     font-size: 1.1rem;
     line-height: 1.3;
     font-weight: 500;
+  }
+  .main_bg_img {
+    position: absolute;
   }
   @media only screen and (min-width: 769px) {
     background: white;

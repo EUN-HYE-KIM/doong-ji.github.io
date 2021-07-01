@@ -7,13 +7,15 @@ import { Link } from 'react-router-dom';
 
 const DoongjiJoin: FC = () => {
   return (
-    <Content className="site-layout" style={{ padding: '0 50px' }}>
-      <SiteLayoutBackground style={{ padding: 24, minHeight: 380 }}>
-        <Button type="primary" shape="round">
-          <Link to="signup">바로가기</Link>
-        </Button>
-      </SiteLayoutBackground>
-    </Content>
+    <section className="section">
+      <Content className="site-layout" style={{ padding: '0 50px' }}>
+        <SiteLayoutBackground style={{ padding: 24, minHeight: 380 }}>
+          <Button type="primary" shape="round">
+            <Link to="signup">바로가기</Link>
+          </Button>
+        </SiteLayoutBackground>
+      </Content>
+    </section>
   );
 };
 export default DoongjiJoin;

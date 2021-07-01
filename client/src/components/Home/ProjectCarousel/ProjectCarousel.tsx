@@ -38,14 +38,15 @@ const ProjectCarousel: FC = () => {
   SwiperCore.use([Navigation, Pagination, Autoplay, EffectFade, Thumbs]);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   return (
-    <section>
+    <section className="section">
       <Content>
         <SiteLayoutBackground>
           <ProjectItem>
-            <h2 className="main_title" style={{ fontSize: '3.5rem', width: '50%' }}>
+            <h2 className="main_title">
               <span style={{ display: 'block' }}>둥지는</span>
               <span>어떤 프로젝트를 하나요?</span>
             </h2>
+            <p className="sub_title">다양한 경험으로 당신의 커리어를 완성해보세요</p>
             <div className="project_slide">
               <div className="swiper_container_img">
                 <Swiper
@@ -79,6 +80,7 @@ const ProjectCarousel: FC = () => {
                   onSlideChange={() => {
                     swiper: thumbsSwiper;
                   }}
+                  effect={'fade'}
                   loop={true}
                   watchSlidesVisibility={true}
                   watchSlidesProgress={true}
@@ -87,7 +89,7 @@ const ProjectCarousel: FC = () => {
                     {data.map((item) => {
                       return (
                         <div key={item.id}>
-                          <SwiperSlide>
+                          <SwiperSlide className="project_contnet_sliders">
                             <h2>{item.title}</h2>
                             <h3>{item.coment}</h3>
                           </SwiperSlide>
@@ -97,9 +99,10 @@ const ProjectCarousel: FC = () => {
                     ;
                   </div>
                 </Swiper>
-                <Button type="primary" shape="round">
-                  <Link to="project">VIEWMORE</Link>
-                </Button>
+
+                <Link className="to_project_link" to="project">
+                  VIEWMORE
+                </Link>
               </div>
             </div>
           </ProjectItem>
