@@ -14,20 +14,20 @@ vscode를 실행 -> 터미널 클론한 프로젝트 연결
 
 ## STEP 2 다른 분이 작업한 내용 적용
 
-작업을 하다보면 다른 분이 작업한 거랑 겹처서 
+작업을 하다보면 다른 분이 작업한 거랑 겹처서 <br>
 충돌이 날 수 있다 그걸 해결하는 방법
 
-프로젝트 시작전에 `git pull origin [해당 브랜치]`
--> 만약 실행해서 ~~를 찾지 못했다는 오류가 난다면 package.json 파일이 있는 폴더에서 `yarn 또는 npm install`
--> 작업이 끝났다면 지금 작업하고 있는 issue 넘버(#25)를 붙여서 commit 
+프로젝트 시작전에 `git pull origin [해당 브랜치]`<br>
+-> 만약 실행해서 ~~를 찾지 못했다는 오류가 난다면 package.json 파일이 있는 폴더에서 `yarn 또는 npm install`<br>
+-> 작업이 끝났다면 지금 작업하고 있는 issue 넘버(#25)를 붙여서 commit <br>
 `ex) Feat[#25] : menu dropdown finish`
 
 ### 브랜치 이동시 방법
-명령어 git remote update로  git remote 갱신
-git branch -r - 원격 저장소 (github) branch 리스트를 확인
-git branch -a - 로컬과 원격저장소 branch 리스트를 모두 확인
+명령어 git remote update로  git remote 갱신<br>
+git branch -r - 원격 저장소 (github) branch 리스트를 확인<br>
+git branch -a - 로컬과 원격저장소 branch 리스트를 모두 확인<br>
 
-이제 브랜치를 이동할 떄는 
+이제 브랜치를 이동할 떄는 <br>
 `git checkout -t origin/[해당 브랜치이름]`  으로 이동하면 된다
 
 
@@ -37,15 +37,15 @@ git branch -a - 로컬과 원격저장소 branch 리스트를 모두 확인
 
 ### emotion 태그 사용법
 
-componet-> 작성할 .tsx 파일에서 원하는 위치에 원하는 이름을 가진 <TagBox></TagBox> 이런 식으로 만든다
-`주의) 첫 시작은 대문자여야만한다`
--> 원하는 이름으로 태그 생성 후 
--> styled.ts 파일로 이동 `export const TagBox = styled.div(아무 태그나 가능 ex-a,h1,section 등등)'css작성';`
--> css 작성 후 tsx 파일 돌아와서 최상단 import 파일 생성
+componet-> 작성할 .tsx 파일에서 원하는 위치에 원하는 이름을 가진 <TagBox></TagBox> 이런 식으로 만든다<br>
+`주의) 첫 시작은 대문자여야만한다`<br>
+-> 원하는 이름으로 태그 생성 후 <br>
+-> styled.ts 파일로 이동 `export const TagBox = styled.div(아무 태그나 가능 ex-a,h1,section 등등)'css작성';`<br>
+-> css 작성 후 tsx 파일 돌아와서 최상단 import 파일 생성<br>
 `ex) import { TagBox } from './styled'`
 
 ## 라이브러리 수정법
-theme -> globalStyle.ts 파일에서 해당 라이브러리 태크 className 찾아서
+theme -> globalStyle.ts 파일에서 해당 라이브러리 태크 className 찾아서<br>
 ```javascript
 .ClassName {
     color : #eee;
@@ -68,14 +68,14 @@ function App() {
 ```
 
 ### global Theme 사용법
-theme -> 아래 index.ts 와 emotion.d.ts를 사용해서
-반복되는 수를 저장할 수 있다
-ex) 메인 컬러, 미디어 사이즈 등등
-사용법은
-index.ts 와 emotion.d.ts 파일에 원하는 변수를 등록하고
-위에 prop 사용법과 같이
-`${props => props.theme || 'black'};` 사용한다
-여기서 중요한 점은 props.theme를 사용해야 한다
+theme -> 아래 index.ts 와 emotion.d.ts를 사용해서<br>
+반복되는 수를 저장할 수 있다<br>
+ex) 메인 컬러, 미디어 사이즈 등등<br>
+사용법은<br>
+index.ts 와 emotion.d.ts 파일에 원하는 변수를 등록하고<br>
+위에 prop 사용법과 같이<br>
+`${props => props.theme || 'black'};` 사용한다<br>
+여기서 중요한 점은 props.theme를 사용해야 한다<br>
 props.color 이런식으로 뒤에 해당하는 변수가 붙는다
 
 ## 미디어쿼리 사용법
