@@ -2,8 +2,8 @@ import { FC, useState, useCallback } from 'react';
 
 import useValidator from '@/hooks/useValidator';
 import { isName, isEmail, isPassword, isNickname } from '@/utils/validators';
-import SignupSuccess from './SignupSuccess';
-import SignupForm from './SignupForm';
+import SignupSuccess from 'src/components/Signup/SignupSuccess';
+import SignupForm from 'src/components/Signup/SignupForm';
 
 const Signup: FC = () => {
   const [name, , onChangeName, isNameValid] = useValidator('', isName);
