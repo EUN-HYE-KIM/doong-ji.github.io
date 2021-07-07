@@ -1,6 +1,5 @@
-import { Button, Carousel } from 'antd';
 import { Content } from 'antd/lib/layout/layout';
-import { FC, useRef, useState } from 'react';
+import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ProjectItem, SiteLayoutBackground } from './styeld';
 // import { CaroulsCss } from './styeld';
@@ -72,7 +71,6 @@ const ProjectCarousel: FC = () => {
 
               <div className="swiper_container_txt">
                 <Swiper
-                  onSwiper={setThumbsSwiper}
                   className="swiper-container2"
                   style={{ width: '100%' }}
                   spaceBetween={0}

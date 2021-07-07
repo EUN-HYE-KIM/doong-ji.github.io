@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { Tabs, Space } from 'antd';
+import { Tabs } from 'antd';
 
 import { Content } from 'antd/lib/layout/layout';
 import { SiteLayoutBackground } from './styeld';
